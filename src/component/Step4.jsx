@@ -21,7 +21,7 @@ const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
         <CstInfoBox>
           <InfoMenu>
             <InfoList>
-              <InfoInput name="name" placeholder="수취인명" onChange={handleChange} />
+              <InfoInput name="name" placeholder="수취인명 (네이버 수취인명 과 동일하게 입력해 주세요)" onChange={handleChange} />
             </InfoList>
             <InfoList>
               <InfoInput
@@ -47,24 +47,7 @@ const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
           />
         </CstInfoBox>
 
-        <BtnBox>
-          <GoToTalkTalk
-            onClick={() => {
-              window.open('https://talk.naver.com/ct/wchaw2?frm=pss#nafullscreen');
-            }}
-          >
-            <NaverIcon src="/images/talk.jpg" alt="icon" />
-            네이버 톡톡 문의하기
-          </GoToTalkTalk>
-          <GoToKakao
-            onClick={() => {
-              window.open('http://pf.kakao.com/_qlhZj/chat');
-            }}
-          >
-            <KakaoIcon src="/images/kakao.png" alt="icon" />
-            카카오톡 채널 문의하기
-          </GoToKakao>
-        </BtnBox>
+
       </CstInfoContainer>
       {/* 주의 */}
       <Caution />
@@ -201,50 +184,4 @@ const AgreeBtn = styled.button`
   border-radius: 3px;
 `;
 
-const BtnBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin-top: 16px;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const GoToTalkTalk = styled.button`
-  background-color: #00c63b;
-  width: 30%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  box-shadow: 5px 5px 5px -3px #333;
-  @media (max-width: 768px) {
-    width: 80%;
-    margin-top: 0px;
-  }
-`;
-
-const GoToKakao = styled(GoToTalkTalk)`
-  background-color: #f9e000;
-  @media (max-width: 768px) {
-    margin-top: 24px;
-  }
-`;
-
-const NaverIcon = styled.img`
-  display: block;
-  width: 40px;
-  height: 40px;
-`;
-
-const KakaoIcon = styled(NaverIcon)`
-  width: 50px;
-  height: 50px;
-`;

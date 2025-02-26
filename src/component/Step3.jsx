@@ -112,14 +112,14 @@ const Step3 = props => {
           <TotalBox>
             <InfoMenu>
               <InfoItem>
-                네이버에서 100원단위 (길이구간 50mm) 선택 후 (네이버 결제 수량) 동일하게 입력하여
-                구매하시면 됩니다.
+                네이버에서 100원 단위 (길이구간 50mm) 선택 후 (네이버 결제 수량) <br />
+                동일하게 입력하여 구매하시면 됩니다.
               </InfoItem>
               <InfoItem>자동견적 계산기는 프로파일 및 가공만 계산되는 금액입니다.</InfoItem>
               <InfoItem>
-                프로파일 부품은 프로파일 구매금액 별도로 네이버 추가 상품에서 선택 구매하시면
-                됩니다.
+                <RedText>프로파일 부품</RedText>은 프로파일 구매금액 별도 입니다.
               </InfoItem>
+                <RedText>네이버 추가 상품</RedText>에서 선택 구매하시면 됩니다.
             </InfoMenu>
           </TotalBox>
           <TotalBox>
@@ -140,7 +140,7 @@ const Step3 = props => {
               </TotalItem>
               <TotalItem>
                 <TotalH4>
-                  <StrongSpan>네이버</StrongSpan> 백원 <StrongSpan>단위 결제 수량</StrongSpan>
+                  <StrongSpan>네이버 100원 단위 결제 수량</StrongSpan>
                 </TotalH4>
                 <Total>
                   <StrongSpan>{totalQuantity.toLocaleString()}개</StrongSpan>
@@ -351,4 +351,9 @@ const CautionP = styled.p`
   color: red;
   text-decoration: underline;
   font-weight: 600;
+`;
+
+const RedText = styled.span`
+  color: red;
+  display: inline;
 `;

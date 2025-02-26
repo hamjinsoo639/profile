@@ -377,10 +377,6 @@ const SubSelect = styled.select`
 
 const Option = styled.option``;
 
-const OptionStrong = styled.strong`
-  color: red;
-  margin: 0 4px;
-`;
 
 const OptionDescription = styled.p`
   width: 100%;
