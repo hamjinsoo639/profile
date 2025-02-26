@@ -96,30 +96,50 @@ const Main = () => {
     remark: null,
   });
   const [agree, setAgree] = useState(false);
-  
+
   const productPrice = useMemo(() => {
     const { product, length, amount } = orders;
     if (!length || !amount) {
       return 0;
     }
-  
-    // 100mm 단위로 계산 (length가 100mm 미만이면 최소 1단위로 계산)
-    const units = Math.floor(length / 100) || 1;
-  
-    if (product === '4040') {
-      // 4040 제품: 기본 가격 1500원에 100mm 단위가 늘어날 때마다 추가 100원 (첫 단위 제외)
-      return (1500 * units + 100 * (units - 1)) * amount;
-    } else {
-      // 나머지 제품: priceMap의 기본 가격에 100mm 단위 곱
-      const priceMap = {
-        2020: 400,
-        2040: 700,
-        3030: 900,
-        3060: 1400,
-        4080: 2700,
-      };
-      return (priceMap[product] || 0) * units * amount;
+
+    const priceMap = {
+      2020: 400,
+      2040: 700,
+      3030: 900,
+      3060: 1400,
+      4040: 1500,
+      4080: 2700,
+    };
+
+    // 2020 제품의 특별 규칙: 1-50mm는 100원
+    if (product === '2020' && length <= 50) {
+      return 100 * amount;
     }
+
+    // 구간별 가격 계산 함수
+    const calculateSegmentPrice = (basePrice, length, is4040 = false) => {
+      // 1-100mm: 기본가
+      if (length <= 100) {
+        return basePrice;
+      }
+
+      // 구간 계산 (101-200mm는 2구간, 201-300mm는 3구간...)
+      const segment = Math.ceil(length / 100);
+      const segmentPrice = basePrice * segment;
+
+      // 4040 제품은 구간당 100원 추가
+      if (is4040) {
+        return segmentPrice + 100 * (segment - 1);
+      }
+
+      return segmentPrice;
+    };
+
+    const basePrice = priceMap[product] || 0;
+    const finalPrice = calculateSegmentPrice(basePrice, length, product === '4040');
+
+    return finalPrice * amount;
   }, [orders]);
   // 탭가공 가격
   const tabPrice = useMemo(() => {
