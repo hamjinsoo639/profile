@@ -55,25 +55,53 @@ const TableToPDF = props => {
         <SubmitBtn onClick={handleSendEmail}>판매자에게 견적전송하기</SubmitBtn>
       </SubmitBtnBox>
       <BtnBox>
-          <GoToTalkTalk
-            onClick={() => {
-              window.open('https://talk.naver.com/ct/wchaw2?frm=pss#nafullscreen');
-            }}
-          >
-            <NaverIcon src="/images/talk.jpg" alt="icon" />
-            네이버 톡톡 문의하기
-          </GoToTalkTalk>
-          <GoToKakao
-            onClick={() => {
-              window.open('http://pf.kakao.com/_qlhZj/chat');
-            }}
-          >
-            <KakaoIcon src="/images/kakao.png" alt="icon" />
-            카카오톡 채널 문의하기
-          </GoToKakao>
-        </BtnBox>
+        <GoToTalkTalk
+          onClick={() => {
+            window.open('https://talk.naver.com/ct/wchaw2?frm=pss#nafullscreen');
+          }}
+        >
+          <NaverIcon src="/images/talk.jpg" alt="icon" />
+          네이버 톡톡 문의하기
+        </GoToTalkTalk>
+        <GoToKakao
+          onClick={() => {
+            window.open('http://pf.kakao.com/_qlhZj/chat');
+          }}
+        >
+          <KakaoIcon src="/images/kakao.png" alt="icon" />
+          카카오톡 채널 문의하기
+        </GoToKakao>
+      </BtnBox>
+      <ProductWrapper>
+        <ProductImage src="/images/product/1.png" alt="product" />
+        <ProductImage src="/images/product/2.png" alt="product" />
+        <ProductImage src="/images/product/3.png" alt="product" />
+        <ProductImage src="/images/product/4.png" alt="product" />
+        <ProductImage src="/images/product/5.png" alt="product" />
+        <ProductImage src="/images/product/6.png" alt="product" />
+        <ProductImage src="/images/product/7.png" alt="product" />
+        <ProductImage src="/images/product/8.png" alt="product" />
+        <ProductImage src="/images/product/9.png" alt="product" />
+        <ProductImage src="/images/product/10.png" alt="product" />
+        <ProductImage src="/images/product/11.png" alt="product" />
+        <ProductImage src="/images/product/12.jpg" alt="product" />
+        <ProductImage src="/images/product/13.png" alt="product" />
+        <ProductImage src="/images/product/14.png" alt="product" />
+        <ProductImage src="/images/product/15.png" alt="product" />
+        <ProductImage src="/images/product/16.png" alt="product" />
+        <ProductImage src="/images/product/17.png" alt="product" />
+        <ProductImage src="/images/product/18.png" alt="product" />
+        <ProductImage src="/images/product/19.jpg" alt="product" />
+        <ProductImage src="/images/product/20.jpg" alt="product" />
+        <ProductImage src="/images/product/21.png" alt="product" />
+        <ProductImage src="/images/product/22.jpg" alt="product" />
+        <ProductImage src="/images/product/23.jpg" alt="product" />
+        <ProductImage src="/images/product/24.jpg" alt="product" />
+        <ProductImage src="/images/product/25.png" alt="product" />
+        <ProductImage src="/images/product/26.png" alt="product" />
+        <ProductImage src="/images/product/27.jpg" alt="product" />
+      </ProductWrapper>
     </PDFBase>
-    
   );
 };
 
@@ -105,7 +133,7 @@ const BtnBox = styled.div`
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 16px;
+  margin-top: 40px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -146,4 +174,14 @@ const NaverIcon = styled.img`
 const KakaoIcon = styled(NaverIcon)`
   width: 50px;
   height: 50px;
+`;
+
+const ProductWrapper = styled.div`
+  margin-top: 30px;
+  text-align: center;
+`;
+
+const ProductImage = styled.img`
+  max-width: 100%;
+  height: auto;
 `;

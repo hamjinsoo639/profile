@@ -119,7 +119,7 @@ const Step3 = props => {
               <InfoItem>
                 <RedText>프로파일 부품</RedText>은 프로파일 구매금액 별도 입니다.
               </InfoItem>
-                <RedText>네이버 추가 상품</RedText>에서 선택 구매하시면 됩니다.
+              &nbsp;<RedText>네이버 추가 상품</RedText>에서 선택 구매하시면 됩니다.
             </InfoMenu>
           </TotalBox>
           <TotalBox>
