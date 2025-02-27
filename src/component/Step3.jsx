@@ -118,7 +118,7 @@ const Step3 = props => {
           <TotalBox>
             <InfoMenu>
               <InfoItem>
-                네이버에서 100원 단위 (길이구간 50mm) 선택 후 (네이버 결제 수량)
+                네이버에서 100원 단위 (길이구간 50mm) 선택 후 <br/>(네이버 결제 수량)
                 동일하게 입력하여 구매하시면 됩니다.
               </InfoItem>
               <InfoItem>자동견적 계산기는 프로파일 및 가공만 계산되는 금액입니다.</InfoItem>

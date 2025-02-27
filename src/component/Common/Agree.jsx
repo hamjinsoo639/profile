@@ -83,11 +83,11 @@ const ModalInner = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
-  width: 500px;
-  max-height: 600px;
   overflow-y: auto;
   border-radius: 5px;
   z-index: 1000000;
+  width:440px;
+  height:600px;
 
   @media (max-width: 768px) {
     width: 90%;
@@ -96,7 +96,7 @@ const ModalInner = styled.div`
 `;
 
 const AgreeBase = styled.main`
-  height: 100%;
+  height: 0%;
   padding: 24px 16px;
   line-height: 1.6;
 `;
@@ -104,6 +104,10 @@ const AgreeBase = styled.main`
 const AgreeH1 = styled.h1`
   font-size: 24px;
   font-weight: 600;
+
+    @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const AgreeBox = styled.div`
@@ -118,6 +122,10 @@ const AgreeH3 = styled.h3`
   font-size: 17px;
   font-weight: 700;
   margin-top: 7px;
+
+    @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const AgreeMenu = styled.ul`
@@ -126,10 +134,17 @@ const AgreeMenu = styled.ul`
 
 const AgreeItem = styled.li`
   margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const AgreeH4 = styled.h4``;
-const AgreeP = styled.p``;
+const AgreeP = styled.p`
+
+
+`;
 
 const CloseBtn = styled.button`
   background-color: rgb(63, 106, 167);

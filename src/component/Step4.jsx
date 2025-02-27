@@ -189,32 +189,3 @@ const AgreeBtn = styled.button`
   width:120px;
 `;
 
-const AgreeModal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;  // 고정 너비
-  max-height: 600px;  // 최대 높이
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  z-index: 1000;  // iframe 위에 표시되도록 높은 z-index 값
-
-  @media (max-width: 768px) {
-    width: 90%;  // 모바일에서는 화면의 90% 너비
-    max-height: 80vh;  // 모바일에서는 화면 높이의 80%
-  }
-`;
-
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-`;
-
-
