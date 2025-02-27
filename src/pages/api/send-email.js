@@ -60,7 +60,7 @@ export default async function handler(req, res) {
 
     const mailOptions = {
       from: 'hamjinsoo90@gmail.com',
-      to: 'heyya1588@gmail.com',
+      to: ['heyya1588@gmail.com', email],
       subject: title,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 1000px; margin: auto; padding: 0 0 30px;">
