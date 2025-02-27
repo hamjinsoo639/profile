@@ -98,7 +98,6 @@ const TableToPDF = props => {
         <ProductImage src="/images/product/23.jpg" alt="product" />
         <ProductImage src="/images/product/24.jpg" alt="product" />
         <ProductImage src="/images/product/25.png" alt="product" />
-        <ProductImage src="/images/product/26.png" alt="product" />
         <ProductImage src="/images/product/27.jpg" alt="product" />
       </ProductWrapper>
     </PDFBase>
