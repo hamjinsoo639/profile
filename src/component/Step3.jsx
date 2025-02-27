@@ -77,23 +77,16 @@ const Step3 = props => {
                 </tr>
                 <tr key={`${key}-2`}>
                   <td colSpan={6}>
-                    {item.tab.value !== '' && (
-                      <>
-                        * 탭가공: {item.tab.value} / {item.tab.amount}개
-                        <br />
-                      </>
-                    )}
-                    {item.hole.value !== '' && (
-                      <>
-                        * 홀가공: {item.hole.value} / {item.hole.amount}개
-                        <br />
-                      </>
-                    )}
-                    {item.angle.value !== '' && (
-                      <>
-                        * 45도각도 절단: {item.angle.value} / {item.angle.amount}개
-                      </>
-                    )}
+                    {[
+                      item.tab.value && item.tab.amount > 0 && 
+                        `* 탭가공: ${item.tab.value} / ${item.tab.amount}개`,
+                      item.hole.value && item.hole.amount > 0 && 
+                        `* 홀가공: ${item.hole.value} / ${item.hole.amount}개`,
+                      item.angle.value && item.angle.amount > 0 && 
+                        `* 45도각도 절단: ${item.angle.value} / ${item.angle.amount}개`
+                    ]
+                      .filter(Boolean)
+                      .join('\n')}
                   </td>
                 </tr>
               </>

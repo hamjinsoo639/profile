@@ -35,6 +35,24 @@ const SubStep2 = props => {
     [setSubOrders],
   );
 
+  const handleSubmit = () => {
+    const validOrders = selectOrders.filter(option => {
+      if (option === 'tab' && (!subOrders.tab.amount || subOrders.tab.amount === 0)) return false;
+      if (option === 'hole' && (!subOrders.hole.amount || subOrders.hole.amount === 0)) return false;
+      if (option === 'angle' && (!subOrders.angle.amount || subOrders.angle.amount === 0)) return false;
+      return true;
+    });
+
+    const filteredSubOrders = {
+      ...subOrders,
+      tab: validOrders.includes('tab') ? subOrders.tab : { value: '', amount: 0, price: 0 },
+      hole: validOrders.includes('hole') ? subOrders.hole : { value: '', amount: 0, price: 0 },
+      angle: validOrders.includes('angle') ? subOrders.angle : { value: '', amount: 0, price: 0 }
+    };
+
+    handleAddToSheet(filteredSubOrders);
+  };
+
   return (
     <SubStep2Base>
       <SubContents>
@@ -59,10 +77,8 @@ const SubStep2 = props => {
         </SubMenu>
 
         <OptionMenu>
-          {/* 모든 옵션이 해제되었을 때 */}
           {selectOrders.length === 0 && <NoneOption>선택된 가공옵션이 없습니다.</NoneOption>}
 
-          {/* 탭가공 선택 시 표시 */}
           {selectOrders.includes('tab') && (
             <OptionItem>
               <ItemH4>탭가공</ItemH4>
@@ -119,7 +135,6 @@ const SubStep2 = props => {
             </OptionItem>
           )}
 
-          {/* 홀가공 선택 시 표시 */}
           {selectOrders.includes('hole') && (
             <OptionItem style={{ paddingTop: '20px' }}>
               <ItemH4>홀가공</ItemH4>
@@ -182,7 +197,6 @@ const SubStep2 = props => {
             </OptionItem>
           )}
 
-          {/* 45도 가공 선택 시 표시 */}
           {selectOrders.includes('angle') && (
             <OptionItem>
               <ItemH4>45도 가공</ItemH4>
@@ -244,11 +258,7 @@ const SubStep2 = props => {
         </OptionMenu>
 
         <ButtonBox>
-          <SubmitButton
-            onClick={() => {
-              handleAddToSheet();
-            }}
-          >
+          <SubmitButton onClick={handleSubmit}>
             제품담기
           </SubmitButton>
         </ButtonBox>
