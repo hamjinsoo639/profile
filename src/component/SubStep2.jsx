@@ -177,7 +177,7 @@ const SubStep2 = props => {
                 * 홀가공 위치는 왼쪽을 기준으로 진행되며, 타공 중앙점 기준으로 입력하세요.
               </OptionDescription>
               <OptionDescription>
-                - 여러면 타공이 필요한 경우에는 고객센터(031-997-6072)로 연락주세요.
+                 여러면 타공이 필요한 경우에는 고객센터(031-997-6072)로 연락주세요.
               </OptionDescription>
             </OptionItem>
           )}
@@ -272,6 +272,7 @@ const SubP = styled.p`
   font-size: 16px;
   font-weight: 400;
   color: red;
+  line-height:25px;
 `;
 
 const SubMenu = styled.ul`
@@ -279,6 +280,10 @@ const SubMenu = styled.ul`
   flex-wrap: wrap;
   gap: 15px;
   margin-top: 15px;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 const SubItem = styled.li`
@@ -288,24 +293,20 @@ const SubItem = styled.li`
   min-width: 100px;
   max-width: 185px;
   height: 40px;
-
   padding: 6px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   text-align: center;
   cursor: pointer;
   font-size: 16px;
   border-radius: 3px !important;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px;
+  border: 1px solid #cbcbcb;
 
-  // @media (max-width: 768px) {
-  //   height: 40px;
-  // }
+  @media (max-width: 768px) {
+    flex: 1 1 calc(50% - 5px);
+    max-width: none;
+  }
 `;
 
 const OptionMenu = styled.ul`
@@ -331,10 +332,9 @@ const OptionItem = styled.li`
   border: 1px solid #cbcbcb;
   width: 100%;
   padding: 15px 30px;
-  gap: 5px; // 요소들 간격 조절
+  gap: 5px;
+
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 15px;
   }
 `;
@@ -359,8 +359,7 @@ const OptionRow = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    gap: 8px;
-    justify-content: flex-start;
+    gap: 10px;
   }
 `;
 
@@ -378,7 +377,8 @@ const SubSelect = styled.select`
   appearance: none;
 
   @media (max-width: 768px) {
-    width: calc(100% - 153px);
+    width: 100%;
+    flex: 1;
   }
 `;
 
@@ -390,6 +390,7 @@ const OptionDescription = styled.p`
   font-size: 14px;
   color: #666;
   margin-top: 5px;
+  line-height: 25px;
   // border: 1px solid black;
 `;
 
@@ -403,8 +404,9 @@ const OptionInput = styled.input`
   border: 1px solid #cbcbcb;
   border-radius: 5px;
   text-align: center;
+
   @media (max-width: 768px) {
-    width: 150px;
+    width: 100px;
   }
 `;
 
@@ -416,6 +418,10 @@ const ItemButton = styled.button`
   font-size: 14px;
   line-height: 30px;
   border-radius: 3px;
+
+  @media (max-width: 768px) {
+    width: 80px;
+  }
 `;
 
 const ItemSpan = styled.span`
@@ -429,9 +435,10 @@ const FreeSpan = styled.span`
   right: 30px;
   font-weight: 400;
   color: red;
+
   @media (max-width: 768px) {
-    top: 20px;
-    right: 15px;
+    position: static;
+    margin-left: auto;
   }
 `;
 
@@ -440,6 +447,10 @@ const ButtonBox = styled.div`
   align-items: center;
   justify-content: center;
   padding: 30px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -452,4 +463,9 @@ const SubmitButton = styled.button`
   color: #fff;
   font-size: 16px;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 200px;
+  }
 `;

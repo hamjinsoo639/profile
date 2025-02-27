@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import H2 from './Common/H2';
 
@@ -7,7 +7,9 @@ const Step3 = props => {
   const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheck = key => {
-    setCheckedItems(prev => (prev.includes(key) ? prev.filter(id => id !== key) : [...prev, key]));
+    setCheckedItems(prev =>
+      prev.includes(key) ? prev.filter(id => id !== key) : [...prev, key]
+    );
   };
 
   const handleDeleteSelected = () => {
@@ -26,7 +28,6 @@ const Step3 = props => {
 
       <TableWrapper>
         <Table>
-          {/* 컬럼 너비 유지 */}
           <colgroup>
             <col width="5%" />
             <col width="10%" />
@@ -34,12 +35,9 @@ const Step3 = props => {
             <col width="10%" />
             <col width="8%" />
             <col width="12%" />
-            <col width="24%" />
-            <col width="10%" />
             <col width="11%" />
           </colgroup>
 
-          {/* 테이블 헤더 */}
           <thead>
             <tr>
               <th></th>
@@ -47,19 +45,16 @@ const Step3 = props => {
               <th>색상</th>
               <th>길이</th>
               <th>수량</th>
-              <th>금액</th>
-              <th>가공옵션</th>
               <th>가공금액</th>
               <th>총금액</th>
             </tr>
           </thead>
 
-          {/* 테이블 본문 */}
           <tbody>
-            {sheet.map((item, key) => {
-              return (
-                <tr key={key}>
-                  <td>
+            {sheet.map((item, key) => (
+              <>
+                <tr key={`${key}-1`}>
+                  <td rowSpan={2}>
                     <input
                       type="checkbox"
                       checked={checkedItems.includes(key)}
@@ -70,14 +65,6 @@ const Step3 = props => {
                   <td>실버</td>
                   <td>{`${item.length}mm`}</td>
                   <td>{item.amount}개</td>
-                  <td>{item.productPrice.toLocaleString()}원</td>
-                  <td>
-                    {item.tab.value !== '' && `* 탭가공: ${item.tab.value} / ${item.tab.amount}개`}
-                    {item.hole.value !== '' &&
-                      `* 홀가공: ${item.hole.value} / ${item.hole.amount}개`}
-                    {item.angle.value !== '' &&
-                      `* 45도각도 절단: ${item.angle.value} / ${item.angle.amount}개`}
-                  </td>
                   <td>{(item.tabPrice + item.anglePrice + item.holePrice).toLocaleString()}원</td>
                   <td>
                     {(
@@ -85,17 +72,36 @@ const Step3 = props => {
                       item.tabPrice +
                       item.anglePrice +
                       item.holePrice
-                    ).toLocaleString()}{' '}
-                    원
+                    ).toLocaleString()}원
                   </td>
                 </tr>
-              );
-            })}
+                <tr key={`${key}-2`}>
+                  <td colSpan={6}>
+                    {item.tab.value !== '' && (
+                      <>
+                        * 탭가공: {item.tab.value} / {item.tab.amount}개
+                        <br />
+                      </>
+                    )}
+                    {item.hole.value !== '' && (
+                      <>
+                        * 홀가공: {item.hole.value} / {item.hole.amount}개
+                        <br />
+                      </>
+                    )}
+                    {item.angle.value !== '' && (
+                      <>
+                        * 45도각도 절단: {item.angle.value} / {item.angle.amount}개
+                      </>
+                    )}
+                  </td>
+                </tr>
+              </>
+            ))}
           </tbody>
         </Table>
       </TableWrapper>
 
-      {/* 삭제 버튼 */}
       <DeleteContainer>
         <Button onClick={handleDeleteSelected}>선택삭제</Button>
         <Button onClick={handleDeleteAll}>전체삭제</Button>
@@ -112,7 +118,7 @@ const Step3 = props => {
           <TotalBox>
             <InfoMenu>
               <InfoItem>
-                네이버에서 100원 단위 (길이구간 50mm) 선택 후 (네이버 결제 수량) <br />
+                네이버에서 100원 단위 (길이구간 50mm) 선택 후 (네이버 결제 수량)
                 동일하게 입력하여 구매하시면 됩니다.
               </InfoItem>
               <InfoItem>자동견적 계산기는 프로파일 및 가공만 계산되는 금액입니다.</InfoItem>
@@ -128,12 +134,12 @@ const Step3 = props => {
                 <TotalH4 style={{ color: 'black', fontSize: '18px', fontWeight: '500' }}>
                   총 견적금액
                 </TotalH4>
-
                 <Total>{totalEstimatePrice.toLocaleString()}원</Total>
               </TotalItem>
               <TotalItem>
-                <TotalH4 style={{ color: 'black', fontWeight: '800' }}>총 결제금액</TotalH4>
-
+                <TotalH4 style={{ color: 'black', fontWeight: '800' }}>
+                  총 결제금액
+                </TotalH4>
                 <Total>
                   <StrongSpan>{totalPayment.toLocaleString()}원</StrongSpan>
                 </Total>
@@ -167,39 +173,76 @@ const TableWrapper = styled.div`
   min-height: 200px;
   max-height: 250px;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    max-height: none;
+    overflow-y: visible;
+  }
 `;
 
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
-  position: relative;
+  border-spacing: 0;
 
   thead {
     position: sticky;
     top: 0;
-    background: #d9e3ff;
     z-index: 2;
+    
+    th {
+      background-color: #ecf4ff;
+      border: 1px solid #e4e4e4;
+      padding: 10px 5px;
+      font-size: 14px;
+      text-align: center;
+      overflow: hidden;
+      word-break: normal;
+    }
   }
 
-  th,
-  td {
-    font-size: 14px;
-    text-align: center;
-    vertical-align: middle;
+  tbody {
+    tr {
+      background-color: #ffffff;
+      
+      td {
+        border: 1px solid #e4e4e4;
+        padding: 10px 5px;
+        font-size: 14px;
+        text-align: center;
+        overflow: hidden;
+        word-break: normal;
+
+        &[colspan="6"] {
+          text-align: left;
+          padding-left: 15px;
+          line-height: 25px;
+        }
+      }
+    }
   }
 
-  th {
-    padding: 15px 0;
-    font-weight: 600;
-  }
-
-  td {
-    background: #fff;
-    padding: 12px 0;
-    font-weight: 400;
-    line-height: 1.4;
-    border-bottom: 1px solid #e4e4e4;
+  @media (max-width: 768px) {
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          td:first-child {
+            rowspan: 2;
+          }
+        }
+        
+        &:nth-child(even) {
+          td {
+            &:not(:first-child) {
+              colspan: 6;
+              text-align: left;
+              padding-left: 15px;
+              background-color: #f8f8f8;
+            }
+          }
+        }
+      }
+    }
   }
 
   input[type='checkbox'] {
@@ -330,7 +373,6 @@ const TotalItem = styled.li`
   font-weight: 600;
   margin-bottom: 5px;
   &:first-child {
-    // padding-top: 0;
     border-bottom: 2px dashed #c8c8c8;
   }
 `;

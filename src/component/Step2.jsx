@@ -109,8 +109,8 @@ const SizeMenu = styled.ul`
   padding: 0px 15px 0px 30px;
 
   @media (max-width: 768px) {
-    width: 100%;
     padding: 15px 0;
+    width: 100%;
   }
 `;
 

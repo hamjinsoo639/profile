@@ -38,6 +38,7 @@ const CautionMenu = styled.ul`
   background-color: #fff;
   margin-top: 10px;
   padding: 15px 10px;
+  line-height:25px;
 `;
 
 const CautionItem = styled.li`
