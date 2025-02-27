@@ -67,26 +67,34 @@ const Agree = props => {
 export default Agree;
 
 const ModalBase = styled.div`
-  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 16px;
-  z-index: 999;
+  z-index: 999999;
 `;
 
 const ModalInner = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
-  width: 100%;
-  max-width: 720px;
-  overflow-y: scroll;
+  width: 500px;
+  max-height: 600px;
+  overflow-y: auto;
   border-radius: 5px;
+  z-index: 1000000;
+
   @media (max-width: 768px) {
-    height: 100%;
+    width: 90%;
+    max-height: 80vh;
   }
 `;
+
 const AgreeBase = styled.main`
   height: 100%;
   padding: 24px 16px;
@@ -103,6 +111,7 @@ const AgreeBox = styled.div`
   padding: 12px 0;
   border-radius: 8px;
   text-align: center;
+  font-size:12px;
 `;
 
 const AgreeH3 = styled.h3`
