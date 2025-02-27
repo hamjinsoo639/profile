@@ -69,7 +69,7 @@ const SubStep2 = props => {
               <OptionRow>
                 <ItemButton
                   onClick={() =>
-                    window.open('/images/tab_detail.png', '_blank', 'width=600,height=600')
+                    window.open('/images/tap.webp', '_blank', 'width=600,height=600')
                   }
                 >
                   사진보기
@@ -126,7 +126,7 @@ const SubStep2 = props => {
               <OptionRow>
                 <ItemButton
                   onClick={() =>
-                    window.open('/images/hole_detail.png', '_blank', 'width=600,height=600')
+                    window.open('/images/hole.webp', '_blank', 'width=600,height=600')
                   }
                 >
                   사진보기
@@ -187,7 +187,14 @@ const SubStep2 = props => {
             <OptionItem>
               <ItemH4>45도 가공</ItemH4>
               <OptionRow>
-                <ItemButton>사진보기</ItemButton>
+              <ItemButton
+                  onClick={() =>
+                    window.open('/images/cutting.webp', '_blank', 'width=600,height=600')
+                  }
+                >
+                  사진보기
+                </ItemButton>
+
                 <ItemSpan>상세옵션</ItemSpan>
                 <SubSelect
                   onChange={e => {

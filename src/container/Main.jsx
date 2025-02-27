@@ -151,28 +151,49 @@ const Main = () => {
   // 홀가공 가격
   const holePrice = useMemo(() => {
     const { hole } = subOrders;
-    return hole.price * hole.amount;
+    return (hole?.price || 0) * (hole?.amount || 0);
   }, [subOrders.hole]);
 
   // 45도 각도절단 가격
   const anglePrice = useMemo(() => {
     const { angle } = subOrders;
-    return angle.price * angle.amount;
+    return (angle?.price || 0) * (angle?.amount || 0);
   }, [subOrders.angle]);
 
   const handleAddToSheet = useCallback(() => {
-    if (Object.values(orders).some(value => value === 0 || value === '') || productPrice === 0) {
+    // 기본 유효성 검사
+    if (Object.values(orders).some(value => value === 0 || value === '')) {
       return alert('입력하지 않은 정보가 있습니다.');
     }
+
+    // subOrders 데이터 검증
+    const validatedSubOrders = {
+      tab: {
+        value: subOrders.tab?.value || '',
+        amount: subOrders.tab?.amount || 0,
+        price: subOrders.tab?.price || 0,
+      },
+      hole: {
+        value: subOrders.hole?.value || '',
+        amount: subOrders.hole?.amount || 0,
+        price: subOrders.hole?.price || 0,
+      },
+      angle: {
+        value: subOrders.angle?.value || '',
+        amount: subOrders.angle?.amount || 0,
+        price: subOrders.angle?.price || 0,
+      },
+    };
+
     setSheet(prev => [
       ...prev,
       {
         ...orders,
-        ...subOrders,
-        tabPrice,
-        holePrice,
-        anglePrice,
-        productPrice,
+        ...validatedSubOrders,
+        tabPrice: tabPrice || 0,
+        holePrice: holePrice || 0,
+        anglePrice: anglePrice || 0,
+        productPrice: productPrice || 0,
       },
     ]);
 
@@ -197,7 +218,7 @@ const Main = () => {
 
     setSelectOrders([]);
     setSelectedProduct('2020');
-  }, [orders, subOrders, setOrders, setSubOrders]);
+  }, [orders, subOrders, tabPrice, holePrice, anglePrice, productPrice]);
 
   // 총 견적금액 (100원 절사 전)
   const totalEstimatePrice = useMemo(() => {
