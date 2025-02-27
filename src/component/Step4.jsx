@@ -4,7 +4,7 @@ import Caution from './Caution';
 import Agree from './Common/Agree';
 
 const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
-  const [openModal, setOpenModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const handleChange = e => {
     const { name, value } = e.target;
     setCustomerInfo(prev => ({
@@ -65,20 +65,44 @@ const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
           위 사항을 확인했습니다. 개인정보 취급방침에 동의합니다.
         </AgreeLabel>
         <AgreeBtn
-          onClick={() => {
-            setOpenModal(true);
-          }}
+          onClick={() => setIsOpen(!isOpen)}
         >
-          전문보기
+          {isOpen ? '닫기' : '전문보기'}
         </AgreeBtn>
       </AgreeContents>
-      {openModal && (
-        <Agree
-          onCloseModal={() => {
-            setOpenModal(false);
-          }}
-        />
-      )}
+      
+      <AccordionContent isOpen={isOpen}>
+        <AgreeBase>
+          <AgreeH1>개인정보 수집 이용동의 (필수)</AgreeH1>
+          <AgreeBox>
+            개인정보 수집 및 이용에 대한 안내 <br/>(개인정보 보호법 제 15조 2항)
+          </AgreeBox>
+
+          <AgreeMenu>
+            <AgreeItem>
+              <AgreeH4>1. 개인정보의 수집 이용 목적</AgreeH4>
+              <AgreeP>프로파일의 자동 견적 계산 견적서를 제공하기 위한 본인 확인</AgreeP>
+            </AgreeItem>
+            <AgreeItem>
+              <AgreeH4>2. 수집하려는 개인정보</AgreeH4>
+              <AgreeP>필수항목: 이름, 연락처, 이메일</AgreeP>
+            </AgreeItem>
+            <AgreeItem>
+              <AgreeH4>3. 개인정보의 보유이용기간</AgreeH4>
+              <AgreeP>
+                개인정보는 개인정보의 수집목적 또는 제공받은 목적이 소멸되면 파기됩니다.
+              </AgreeP>
+            </AgreeItem>
+            <AgreeItem>
+              <AgreeH4>4. 동의를 거부할 권리 및 동의 거부에 따른 불이익 내용</AgreeH4>
+              <AgreeP>
+                개인정보 수집이용에 동의를 거부할 권리가 있으며, 동의후에도 언제든지 철회
+                가능합니다. 다만, 동의를 거부할 경우 프로파일 자동 계산 견적서를 받을 수 없습니다.
+              </AgreeP>
+            </AgreeItem>
+          </AgreeMenu>
+        </AgreeBase>
+      </AccordionContent>
     </Step4Base>
   );
 };
@@ -187,5 +211,59 @@ const AgreeBtn = styled.button`
   font-size: 14px;
   border-radius: 3px;
   width:120px;
+`;
+
+const AccordionContent = styled.div`
+  max-height: ${props => (props.isOpen ? '1000px' : '0')};
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  background: #fff;
+  margin-top: ${props => (props.isOpen ? '20px' : '0')};
+`;
+
+const AgreeBase = styled.main`
+  padding: 24px 16px;
+  line-height: 1.6;
+`;
+
+const AgreeH1 = styled.h1`
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+`;
+
+const AgreeBox = styled.div`
+  background-color: rgb(242, 244, 247);
+  padding: 12px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+`;
+
+const AgreeMenu = styled.ul`
+  margin-top: 7px;
+`;
+
+const AgreeItem = styled.li`
+  margin-bottom: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const AgreeH4 = styled.h4`
+  margin-bottom: 8px;
+`;
+
+const AgreeP = styled.p`
+  color: #666;
+  line-height: 1.5;
 `;
 

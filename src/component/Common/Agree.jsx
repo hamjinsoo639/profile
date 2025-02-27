@@ -81,7 +81,7 @@ const ModalBase = styled.div`
 
 const ModalInner = styled.div`
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
