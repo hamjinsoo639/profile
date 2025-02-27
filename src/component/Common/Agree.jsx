@@ -30,10 +30,9 @@ const Agree = props => {
         <AgreeBase>
           <AgreeH1>개인정보 수집 이용동의 (필수)</AgreeH1>
           <AgreeBox>
-            {'<'}개인정보 수집 및 이용에 대한 안내 - 개인정보 보호법 제 15조 2항{'>'}
+            개인정보 수집 및 이용에 대한 안내 <br/>(개인정보 보호법 제 15조 2항)
           </AgreeBox>
 
-          <AgreeH3>개인정보동의 수집 및 이용</AgreeH3>
           <AgreeMenu>
             <AgreeItem>
               <AgreeH4>1. 개인정보의 수집 이용 목적</AgreeH4>
@@ -75,6 +74,9 @@ const ModalBase = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   padding: 16px;
   z-index: 999999;
+  width:100wh;
+  height:100vh;
+
 `;
 
 const ModalInner = styled.div`
@@ -104,6 +106,8 @@ const AgreeBase = styled.main`
 const AgreeH1 = styled.h1`
   font-size: 24px;
   font-weight: 600;
+  text-align: center;
+  margin-bottom:15px;
 
     @media (max-width: 768px) {
     font-size: 20px;
@@ -115,17 +119,8 @@ const AgreeBox = styled.div`
   padding: 12px 0;
   border-radius: 8px;
   text-align: center;
-  font-size:12px;
-`;
-
-const AgreeH3 = styled.h3`
-  font-size: 17px;
-  font-weight: 700;
-  margin-top: 7px;
-
-    @media (max-width: 768px) {
-    font-size: 15px;
-  }
+  font-size:14px;
+  margin-bottom:15px;
 `;
 
 const AgreeMenu = styled.ul`
