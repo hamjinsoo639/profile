@@ -65,7 +65,7 @@ const Step2 = props => {
               name="length"
               value={orders.length || ''}
               onChange={handleChange}
-              placeholder="길이 (최대 6000mm)"
+              placeholder="길이 입력"
             />
             <span>mm</span>
           </SizeItem>
