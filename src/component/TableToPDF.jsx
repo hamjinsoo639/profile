@@ -55,19 +55,11 @@ const TableToPDF = props => {
         <SubmitBtn onClick={handleSendEmail}>판매자에게 견적전송하기</SubmitBtn>
       </SubmitBtnBox>
       <BtnBox>
-        <GoToTalkTalk
-          onClick={() => {
-            window.open('https://talk.naver.com/ct/wchaw2?frm=pss#nafullscreen');
-          }}
-        >
+        <GoToTalkTalk>
           <NaverIcon src="/images/talk.jpg" alt="icon" />
           네이버 톡톡 문의하기
         </GoToTalkTalk>
-        <GoToKakao
-          onClick={() => {
-            window.open('http://pf.kakao.com/_qlhZj/chat');
-          }}
-        >
+        <GoToKakao>
           <KakaoIcon src="/images/kakao.png" alt="icon" />
           카카오톡 채널 문의하기
         </GoToKakao>

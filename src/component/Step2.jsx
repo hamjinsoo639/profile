@@ -3,6 +3,42 @@ import H2 from './Common/H2';
 
 const Step2 = props => {
   const { productPrice, orders, setOrders } = props;
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    
+    // length 입력 시 유효성 검사
+    if (name === 'length') {
+      const lengthValue = Number(value);
+      
+      // 6000mm 초과 체크
+      if (lengthValue > 6000) {
+        alert('최대 길이는 6000mm입니다.');
+        return;
+      }
+      
+      // 음수 체크
+      if (lengthValue < 0) {
+        alert('길이는 0보다 작을 수 없습니다.');
+        return;
+      }
+    }
+
+    // amount 입력 시 음수 체크
+    if (name === 'amount') {
+      const amountValue = Number(value);
+      if (amountValue < 0) {
+        alert('수량은 0보다 작을 수 없습니다.');
+        return;
+      }
+    }
+
+    setOrders(prev => ({
+      ...prev,
+      [name]: name === 'length' || name === 'amount' ? Number(value) : value,
+    }));
+  };
+
   return (
     <Step2Base>
       <H2>2. 선택하신 프로파일의 길이를 입력해주세요.</H2>
@@ -26,13 +62,10 @@ const Step2 = props => {
             <span>길이</span>
             <Input
               type="number"
-              value={orders.length}
-              onChange={e => {
-                setOrders(prev => ({
-                  ...prev,
-                  length: e.target.value,
-                }));
-              }}
+              name="length"
+              value={orders.length || ''}
+              onChange={handleChange}
+              placeholder="길이 입력 (최대 6000mm)"
             />
             <span>mm</span>
           </SizeItem>
@@ -42,13 +75,10 @@ const Step2 = props => {
             <span>수량</span>
             <Input
               type="number"
-              value={orders.amount}
-              onChange={e => {
-                setOrders(prev => ({
-                  ...prev,
-                  amount: e.target.value,
-                }));
-              }}
+              name="amount"
+              value={orders.amount || ''}
+              onChange={handleChange}
+              placeholder="수량 입력"
             />
             <span>EA</span>
           </SizeItem>
@@ -99,7 +129,7 @@ const Img = styled.img`
 
   @media (max-width: 768px) {
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
     height: auto;
   }
 `;
@@ -120,7 +150,7 @@ const SizeItem = styled.li`
   font-size: 16px;
 
   select {
-    width: 125px;
+    width: 250px;
     padding: 0 10px;
     height: 30px;
     line-height: 30px;
@@ -169,7 +199,7 @@ const Option = styled.option`
 
 const Input = styled.input`
   background-color: #fff;
-  width: 125px;
+  width: 250px;
   text-align: right;
   padding: 0 10px;
   height: 30px;

@@ -22,7 +22,6 @@ const HeaderBase = styled.header`
 const HeaderTitle = styled.img`
   display: block;
   width: 100%;
-  height: 220px;
 `;
 
 const Title = styled.img`

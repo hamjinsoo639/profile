@@ -13,30 +13,49 @@ ${Reset}
 
 :root {
   font-family: 'Noto Sans KR', sans-serif !important;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
 }
+
 * {
   font-family: 'Noto Sans KR', sans-serif !important;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   line-height: inherit;
-  ::-webkit-scrollbar {
-    display: none;
-  }
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
 }
 
 body {
   font-family: 'Noto Sans KR', sans-serif !important;
   max-width: 960px;
   min-width: 280px;
-  // height: calc(var(--vh, 1vh) * 100 - 70px);
   margin: 0 auto;
   color: #4d5058;
-  ::-webkit-scrollbar {
-    display: none;
-  }
+  line-height: 1.5;
 }
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f2f2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e427b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -75,6 +94,20 @@ a, button, input {
   &:disabled {
     cursor: default;
   }
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.5;
+}
+
+ul, li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
 }
 
 `;
