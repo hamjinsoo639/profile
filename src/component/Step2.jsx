@@ -65,7 +65,7 @@ const Step2 = props => {
               name="length"
               value={orders.length || ''}
               onChange={handleChange}
-              placeholder="길이 입력 (최대 6000mm)"
+              placeholder="길이 (최대 6000mm)"
             />
             <span>mm</span>
           </SizeItem>
@@ -154,7 +154,7 @@ const SizeItem = styled.li`
     padding: 0 10px;
     height: 30px;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 14px;
     border: 1px solid #cbcbcb;
     color: #252525;
     border-radius: 5px;
@@ -170,7 +170,7 @@ const SizeItem = styled.li`
     font-weight: bold;
 
     &:first-child {
-      width: 120px;
+      width: 100px;
     }
     &:last-child {
       width: 50px;
@@ -206,7 +206,7 @@ const Input = styled.input`
   line-height: 30px;
   border: 1px solid #cbcbcb;
   color: #252525;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 5px;
   appearance: none;
   -webkit-appearance: none;
