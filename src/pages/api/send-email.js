@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       requireTLS: true,
       auth: {
         user: 'profilecomgimpo@gmail.com',
-        pass: 'profilecom!!',
+        pass: 'brxw atyy wuek zuyn',
       },
       tls: {
         rejectUnauthorized: false,
