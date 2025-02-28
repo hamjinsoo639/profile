@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       .join('');
 
     const mailOptions = {
-      from: 'hamjinsoo90@gmail.com',
+      from: 'profilegimpo@gmail.com',
       to: ['heyya1588@gmail.com', email],
       subject: title,
       html: `
