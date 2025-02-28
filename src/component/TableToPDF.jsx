@@ -109,54 +109,6 @@ const SubmitBtn = styled.button`
   border-radius: 5px;
 `;
 
-const BtnBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin-top: 40px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const GoToTalkTalk = styled.button`
-  background-color: #00c63b;
-  width: 30%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  box-shadow: 5px 5px 5px -3px #333;
-  @media (max-width: 768px) {
-    width: 80%;
-    margin-top: 0px;
-  }
-`;
-
-const GoToKakao = styled(GoToTalkTalk)`
-  background-color: #f9e000;
-  @media (max-width: 768px) {
-    margin-top: 24px;
-  }
-`;
-
-const NaverIcon = styled.img`
-  display: block;
-  width: 40px;
-  height: 40px;
-`;
-
-const KakaoIcon = styled(NaverIcon)`
-  width: 50px;
-  height: 50px;
-`;
-
 const ProductWrapper = styled.div`
   margin-top: 30px;
   text-align: center;
