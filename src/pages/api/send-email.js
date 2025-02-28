@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       secure: false,
       requireTLS: true,
       auth: {
-        user: 'profilegimpo@gmail.com',
+        user: 'profilecomgimpo@gmail.com',
         pass: 'profilecom!!',
       },
       tls: {
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       .join('');
 
     const mailOptions = {
-      from: 'profilegimpo@gmail.com',
+      from: 'profilecomgimpo@gmail.com',
       to: ['heyya1588@gmail.com', email],
       subject: title,
       html: `
