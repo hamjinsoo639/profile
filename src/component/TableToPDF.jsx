@@ -54,16 +54,6 @@ const TableToPDF = props => {
       <SubmitBtnBox>
         <SubmitBtn onClick={handleSendEmail}>판매자에게 견적전송하기</SubmitBtn>
       </SubmitBtnBox>
-      <BtnBox>
-        <GoToTalkTalk>
-          <NaverIcon src="/images/talk.jpg" alt="icon" />
-          네이버 톡톡 문의하기
-        </GoToTalkTalk>
-        <GoToKakao>
-          <KakaoIcon src="/images/kakao.png" alt="icon" />
-          카카오톡 채널 문의하기
-        </GoToKakao>
-      </BtnBox>
       <ProductWrapper>
         <ProductImage src="/images/product/1.png" alt="product" />
         <ProductImage src="/images/product/2.png" alt="product" />
