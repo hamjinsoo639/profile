@@ -50,7 +50,7 @@ const Step2 = props => {
         <SizeMenu>
           {/* 색상 */}
           <SizeItem>
-            <span>색상</span>
+            <span >색상</span>
             <SelectR value="실버">
               <Option value="실버" disabled hidden>
                 실버
@@ -150,7 +150,7 @@ const SizeItem = styled.li`
   font-size: 16px;
 
   select {
-    width: 250px;
+    width: 200px;
     padding: 0 10px;
     height: 30px;
     line-height: 30px;
@@ -170,7 +170,7 @@ const SizeItem = styled.li`
     font-weight: bold;
 
     &:first-child {
-      width: 90px;
+      width: 120px;
     }
     &:last-child {
       width: 50px;
@@ -199,7 +199,7 @@ const Option = styled.option`
 
 const Input = styled.input`
   background-color: #fff;
-  width: 250px;
+  width: 200px;
   text-align: right;
   padding: 0 10px;
   height: 30px;
