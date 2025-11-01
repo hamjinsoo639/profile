@@ -1,6 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
-// component
 import Step1 from '@/component/Step1';
 import Step2 from '@/component/Step2';
 import SubStep2 from '@/component/SubStep2';
