@@ -54,34 +54,6 @@ const TableToPDF = props => {
       <SubmitBtnBox>
         <SubmitBtn onClick={handleSendEmail}>판매자에게 견적전송하기</SubmitBtn>
       </SubmitBtnBox>
-      <ProductWrapper>
-        <ProductImage src="/images/product/1.png" alt="product" />
-        <ProductImage src="/images/product/2.png" alt="product" />
-        <ProductImage src="/images/product/3.png" alt="product" />
-        <ProductImage src="/images/product/4.png" alt="product" />
-        <ProductImage src="/images/product/5.png" alt="product" />
-        <ProductImage src="/images/product/6.png" alt="product" />
-        <ProductImage src="/images/product/7.png" alt="product" />
-        <ProductImage src="/images/product/8.png" alt="product" />
-        <ProductImage src="/images/product/9.png" alt="product" />
-        <ProductImage src="/images/product/10.png" alt="product" />
-        <ProductImage src="/images/product/11.png" alt="product" />
-        <ProductImage src="/images/product/12.jpg" alt="product" />
-        <ProductImage src="/images/product/13.png" alt="product" />
-        <ProductImage src="/images/product/14.png" alt="product" />
-        <ProductImage src="/images/product/15.png" alt="product" />
-        <ProductImage src="/images/product/16.png" alt="product" />
-        <ProductImage src="/images/product/17.png" alt="product" />
-        <ProductImage src="/images/product/18.png" alt="product" />
-        <ProductImage src="/images/product/19.jpg" alt="product" />
-        <ProductImage src="/images/product/20.jpg" alt="product" />
-        <ProductImage src="/images/product/21.png" alt="product" />
-        <ProductImage src="/images/product/22.jpg" alt="product" />
-        <ProductImage src="/images/product/23.jpg" alt="product" />
-        <ProductImage src="/images/product/24.jpg" alt="product" />
-        <ProductImage src="/images/product/25.png" alt="product" />
-        <ProductImage src="/images/product/27.jpg" alt="product" />
-      </ProductWrapper>
     </PDFBase>
   );
 };
@@ -107,14 +79,4 @@ const SubmitBtn = styled.button`
   font-size: 17px;
   font-weight: 500;
   border-radius: 5px;
-`;
-
-const ProductWrapper = styled.div`
-  margin-top: 30px;
-  text-align: center;
-`;
-
-const ProductImage = styled.img`
-  max-width: 100%;
-  height: auto;
 `;
