@@ -16,7 +16,7 @@ export default Header;
 
 const HeaderBase = styled.header`
   // border: 1px solid black;
-    background-color: black;
+  background-color: black;
 `;
 
 const HeaderTitle = styled.img`

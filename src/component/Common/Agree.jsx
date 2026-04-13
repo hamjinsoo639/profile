@@ -11,7 +11,7 @@ const Agree = props => {
     };
   }, []);
 
-  const outside = useRef | (null > null);
+  const outside = useRef(null);
   const handleOutside = e => {
     if (outside.current && !outside.current.contains(e.target)) {
       onCloseModal?.();
@@ -30,7 +30,8 @@ const Agree = props => {
         <AgreeBase>
           <AgreeH1>개인정보 수집 이용동의 (필수)</AgreeH1>
           <AgreeBox>
-            개인정보 수집 및 이용에 대한 안내 <br/>(개인정보 보호법 제 15조 2항)
+            개인정보 수집 및 이용에 대한 안내 <br />
+            (개인정보 보호법 제 15조 2항)
           </AgreeBox>
 
           <AgreeMenu>
@@ -74,9 +75,8 @@ const ModalBase = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   padding: 16px;
   z-index: 999999;
-  width:100wh;
-  height:100vh;
-
+  width: 100wh;
+  height: 100vh;
 `;
 
 const ModalInner = styled.div`
@@ -88,8 +88,8 @@ const ModalInner = styled.div`
   overflow-y: auto;
   border-radius: 5px;
   z-index: 1000000;
-  width:440px;
-  height:600px;
+  width: 440px;
+  height: 600px;
 
   @media (max-width: 768px) {
     width: 90%;
@@ -107,9 +107,9 @@ const AgreeH1 = styled.h1`
   font-size: 24px;
   font-weight: 600;
   text-align: center;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -119,8 +119,8 @@ const AgreeBox = styled.div`
   padding: 12px 0;
   border-radius: 8px;
   text-align: center;
-  font-size:14px;
-  margin-bottom:15px;
+  font-size: 14px;
+  margin-bottom: 15px;
 `;
 
 const AgreeMenu = styled.ul`
@@ -130,16 +130,13 @@ const AgreeMenu = styled.ul`
 const AgreeItem = styled.li`
   margin-bottom: 16px;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `;
 
 const AgreeH4 = styled.h4``;
-const AgreeP = styled.p`
-
-
-`;
+const AgreeP = styled.p``;
 
 const CloseBtn = styled.button`
   background-color: rgb(63, 106, 167);

@@ -117,15 +117,13 @@ export default async function handler(req, res) {
       `,
     };
 
-    return transporter.sendMail(mailOptions, (err, info) => {
+    return transporter.sendMail(mailOptions, err => {
       if (err) {
-        console.error(err);
         return res.status(500).json({ error: err.message });
       }
       return res.status(200).json({ message: '이메일이 성공적으로 전송되었습니다.' });
     });
   } catch (error) {
-    console.error('Error:', error);
     return res.status(500).json({ error: error.message });
   }
 }

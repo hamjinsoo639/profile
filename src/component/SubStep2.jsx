@@ -38,8 +38,10 @@ const SubStep2 = props => {
   const handleSubmit = () => {
     const validOrders = selectOrders.filter(option => {
       if (option === 'tab' && (!subOrders.tab.amount || subOrders.tab.amount === 0)) return false;
-      if (option === 'hole' && (!subOrders.hole.amount || subOrders.hole.amount === 0)) return false;
-      if (option === 'angle' && (!subOrders.angle.amount || subOrders.angle.amount === 0)) return false;
+      if (option === 'hole' && (!subOrders.hole.amount || subOrders.hole.amount === 0))
+        return false;
+      if (option === 'angle' && (!subOrders.angle.amount || subOrders.angle.amount === 0))
+        return false;
       return true;
     });
 
@@ -47,7 +49,7 @@ const SubStep2 = props => {
       ...subOrders,
       tab: validOrders.includes('tab') ? subOrders.tab : { value: '', amount: 0, price: 0 },
       hole: validOrders.includes('hole') ? subOrders.hole : { value: '', amount: 0, price: 0 },
-      angle: validOrders.includes('angle') ? subOrders.angle : { value: '', amount: 0, price: 0 }
+      angle: validOrders.includes('angle') ? subOrders.angle : { value: '', amount: 0, price: 0 },
     };
 
     handleAddToSheet(filteredSubOrders);
@@ -84,9 +86,7 @@ const SubStep2 = props => {
               <ItemH4>탭가공</ItemH4>
               <OptionRow>
                 <ItemButton
-                  onClick={() =>
-                    window.open('/images/tap.webp', '_blank', 'width=600,height=600')
-                  }
+                  onClick={() => window.open('/images/tap.webp', '_blank', 'width=600,height=600')}
                 >
                   사진보기
                 </ItemButton>
@@ -140,9 +140,7 @@ const SubStep2 = props => {
               <ItemH4>홀가공</ItemH4>
               <OptionRow>
                 <ItemButton
-                  onClick={() =>
-                    window.open('/images/hole.webp', '_blank', 'width=600,height=600')
-                  }
+                  onClick={() => window.open('/images/hole.webp', '_blank', 'width=600,height=600')}
                 >
                   사진보기
                 </ItemButton>
@@ -192,7 +190,7 @@ const SubStep2 = props => {
                 * 홀가공 위치는 왼쪽을 기준으로 진행되며, 타공 중앙점 기준으로 입력하세요.
               </OptionDescription>
               <OptionDescription>
-                 여러면 타공이 필요한 경우에는 고객센터(031-997-6072)로 연락주세요.
+                여러면 타공이 필요한 경우에는 고객센터(031-997-6072)로 연락주세요.
               </OptionDescription>
             </OptionItem>
           )}
@@ -201,7 +199,7 @@ const SubStep2 = props => {
             <OptionItem>
               <ItemH4>45도 가공</ItemH4>
               <OptionRow>
-              <ItemButton
+                <ItemButton
                   onClick={() =>
                     window.open('/images/cutting.webp', '_blank', 'width=600,height=600')
                   }
@@ -258,9 +256,7 @@ const SubStep2 = props => {
         </OptionMenu>
 
         <ButtonBox>
-          <SubmitButton onClick={handleSubmit}>
-            제품담기
-          </SubmitButton>
+          <SubmitButton onClick={handleSubmit}>제품담기</SubmitButton>
         </ButtonBox>
       </SubContents>
     </SubStep2Base>
@@ -282,7 +278,7 @@ const SubP = styled.p`
   font-size: 16px;
   font-weight: 400;
   color: red;
-  line-height:25px;
+  line-height: 25px;
 `;
 
 const SubMenu = styled.ul`
@@ -394,7 +390,6 @@ const SubSelect = styled.select`
 
 const Option = styled.option``;
 
-
 const OptionDescription = styled.p`
   width: 100%;
   font-size: 14px;
@@ -437,8 +432,6 @@ const ItemButton = styled.button`
 const ItemSpan = styled.span`
   font-weight: 400;
 `;
-
-const ItemP = styled.p``;
 
 const FreeSpan = styled.span`
   position: absolute;

@@ -7,9 +7,7 @@ const Step3 = props => {
   const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheck = key => {
-    setCheckedItems(prev =>
-      prev.includes(key) ? prev.filter(id => id !== key) : [...prev, key]
-    );
+    setCheckedItems(prev => (prev.includes(key) ? prev.filter(id => id !== key) : [...prev, key]));
   };
 
   const handleDeleteSelected = () => {
@@ -72,18 +70,22 @@ const Step3 = props => {
                       item.tabPrice +
                       item.anglePrice +
                       item.holePrice
-                    ).toLocaleString()}원
+                    ).toLocaleString()}
+                    원
                   </td>
                 </tr>
                 <tr key={`${key}-2`}>
                   <td colSpan={6}>
                     {[
-                      item.tab.value && item.tab.amount > 0 && 
+                      item.tab.value &&
+                        item.tab.amount > 0 &&
                         `* 탭가공: ${item.tab.value} / ${item.tab.amount}개`,
-                      item.hole.value && item.hole.amount > 0 && 
+                      item.hole.value &&
+                        item.hole.amount > 0 &&
                         `* 홀가공: ${item.hole.value} / ${item.hole.amount}개`,
-                      item.angle.value && item.angle.amount > 0 && 
-                        `* 45도각도 절단: ${item.angle.value} / ${item.angle.amount}개`
+                      item.angle.value &&
+                        item.angle.amount > 0 &&
+                        `* 45도각도 절단: ${item.angle.value} / ${item.angle.amount}개`,
                     ]
                       .filter(Boolean)
                       .join('\n')}
@@ -111,8 +113,8 @@ const Step3 = props => {
           <TotalBox>
             <InfoMenu>
               <InfoItem>
-                네이버에서 100원 단위 (길이구간 50mm) 선택 후 <br/>(네이버 결제 수량)
-                동일하게 입력하여 구매하시면 됩니다.
+                네이버에서 100원 단위 (길이구간 50mm) 선택 후 <br />
+                (네이버 결제 수량) 동일하게 입력하여 구매하시면 됩니다.
               </InfoItem>
               <InfoItem>자동견적 계산기는 프로파일 및 가공만 계산되는 금액입니다.</InfoItem>
               <InfoItem>
@@ -130,9 +132,7 @@ const Step3 = props => {
                 <Total>{totalEstimatePrice.toLocaleString()}원</Total>
               </TotalItem>
               <TotalItem>
-                <TotalH4 style={{ color: 'black', fontWeight: '800' }}>
-                  총 결제금액
-                </TotalH4>
+                <TotalH4 style={{ color: 'black', fontWeight: '800' }}>총 결제금액</TotalH4>
                 <Total>
                   <StrongSpan>{totalPayment.toLocaleString()}원</StrongSpan>
                 </Total>
@@ -182,7 +182,7 @@ const Table = styled.table`
     position: sticky;
     top: 0;
     z-index: 2;
-    
+
     th {
       background-color: #ecf4ff;
       border: 1px solid #e4e4e4;
@@ -197,7 +197,7 @@ const Table = styled.table`
   tbody {
     tr {
       background-color: #ffffff;
-      
+
       td {
         border: 1px solid #e4e4e4;
         padding: 10px 5px;
@@ -206,7 +206,7 @@ const Table = styled.table`
         overflow: hidden;
         word-break: normal;
 
-        &[colspan="6"] {
+        &[colspan='6'] {
           text-align: left;
           padding-left: 15px;
           line-height: 25px;
@@ -223,7 +223,7 @@ const Table = styled.table`
             rowspan: 2;
           }
         }
-        
+
         &:nth-child(even) {
           td {
             &:not(:first-child) {

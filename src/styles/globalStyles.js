@@ -60,36 +60,40 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 button {
   font-family: 'Noto Sans KR', sans-serif !important;
   background: transparent;
   font-size: 15px;
   color: ${props => props.theme.font_color};
   border: 0 none;
-  outline:none;
+  outline: none;
   cursor: pointer;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
 }
+
 ol, ul, li {
   list-style: none;
 }
+
 select, option {
   font-family: 'Noto Sans KR', sans-serif !important;
   background: transparent;
-  -webkit-appearance:none; /* for chrome */
-  -moz-appearance:none; /*for firefox*/
-  appearance:none;
+  -webkit-appearance: none; /* for chrome */
+  -moz-appearance: none; /*for firefox*/
+  appearance: none;
   outline: 0 none;
   // color: ${props => props.theme.font_color};
 }
+
 a, button, input {
   font-family: 'Noto Sans KR', sans-serif !important;
   appearance: none;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   -webkit-tap-highlight-color: transparent;
-  outline:none;
+  outline: none;
   border: none;
   &:disabled {
     cursor: default;

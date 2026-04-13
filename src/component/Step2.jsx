@@ -6,17 +6,17 @@ const Step2 = props => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    
+
     // length 입력 시 유효성 검사
     if (name === 'length') {
       const lengthValue = Number(value);
-      
+
       // 6000mm 초과 체크
       if (lengthValue > 6000) {
         alert('최대 길이는 6000mm입니다.');
         return;
       }
-      
+
       // 음수 체크
       if (lengthValue < 0) {
         alert('길이는 0보다 작을 수 없습니다.');
@@ -50,7 +50,7 @@ const Step2 = props => {
         <SizeMenu>
           {/* 색상 */}
           <SizeItem>
-            <span >색상</span>
+            <span>색상</span>
             <SelectR value="실버">
               <Option value="실버" disabled hidden>
                 실버

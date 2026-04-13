@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Caution from './Caution';
-import Agree from './Common/Agree';
 
 const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const handleChange = e => {
     const { name, value } = e.target;
-    setCustomerInfo(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+    setCustomerInfo(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -21,7 +18,11 @@ const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
         <CstInfoBox>
           <InfoMenu>
             <InfoList>
-              <InfoInput name="name" placeholder="수취인명 (네이버 수취인명 과 동일하게 입력해 주세요)" onChange={handleChange} />
+              <InfoInput
+                name="name"
+                placeholder="수취인명 (네이버 수취인명 과 동일하게 입력해 주세요)"
+                onChange={handleChange}
+              />
             </InfoList>
             <InfoList>
               <InfoInput
@@ -46,8 +47,6 @@ const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
             onChange={handleChange}
           />
         </CstInfoBox>
-
-
       </CstInfoContainer>
       {/* 주의 */}
       <Caution />
@@ -64,18 +63,15 @@ const Step4 = ({ agree, setAgree, setCustomerInfo }) => {
         <AgreeLabel htmlFor="agree_chk">
           위 사항을 확인했습니다. 개인정보 취급방침에 동의합니다.
         </AgreeLabel>
-        <AgreeBtn
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? '닫기' : '전문보기'}
-        </AgreeBtn>
+        <AgreeBtn onClick={() => setIsOpen(!isOpen)}>{isOpen ? '닫기' : '전문보기'}</AgreeBtn>
       </AgreeContents>
-      
+
       <AccordionContent isOpen={isOpen}>
         <AgreeBase>
           <AgreeH1>개인정보 수집 이용동의 (필수)</AgreeH1>
           <AgreeBox>
-            개인정보 수집 및 이용에 대한 안내 <br/>(개인정보 보호법 제 15조 2항)
+            개인정보 수집 및 이용에 대한 안내 <br />
+            (개인정보 보호법 제 15조 2항)
           </AgreeBox>
 
           <AgreeMenu>
@@ -189,8 +185,7 @@ const AgreeLabel = styled.label`
   color: black;
   display: flex;
   align-items: center;
-  line-height:25px;
-  
+  line-height: 25px;
 `;
 
 const CheckBox = styled.input`
@@ -210,7 +205,7 @@ const AgreeBtn = styled.button`
   color: #fff;
   font-size: 14px;
   border-radius: 3px;
-  width:120px;
+  width: 120px;
 `;
 
 const AccordionContent = styled.div`
@@ -266,4 +261,3 @@ const AgreeP = styled.p`
   color: #666;
   line-height: 1.5;
 `;
-
