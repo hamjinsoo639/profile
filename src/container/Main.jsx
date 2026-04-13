@@ -103,12 +103,12 @@ const Main = () => {
     }
 
     const priceMap = {
-      2020: 400,
-      2040: 700,
-      3030: 900,
-      3060: 1400,
-      4040: 1500,
-      4080: 2700,
+      2020: 500,
+      2040: 800,
+      3030: 1000,
+      3060: 1800,
+      4040: 1800,
+      4080: 3000,
     };
 
     // 2020 제품의 특별 규칙: 1-50mm는 100원
@@ -125,14 +125,11 @@ const Main = () => {
 
       // 구간 계산 (101-200mm는 2구간, 201-300mm는 3구간...)
       const segment = Math.ceil(length / 100);
+      const additionalPricePerSegment = is4040 ? 100 : 0;
       const segmentPrice = basePrice * segment;
 
       // 4040 제품은 구간당 100원 추가
-      if (is4040) {
-        return segmentPrice + 100 * (segment - 1);
-      }
-
-      return segmentPrice;
+      return segmentPrice + additionalPricePerSegment * (segment - 1);
     };
 
     const basePrice = priceMap[product] || 0;
